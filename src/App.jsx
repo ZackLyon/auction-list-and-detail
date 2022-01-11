@@ -1,3 +1,13 @@
+import { Switch, Route } from 'react-router-dom';
+import CharacterList from './views/CharacterList.jsx';
+import './App.css';
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <Switch>
+      <Route exact path="/">
+        <CharacterList />
+      </Route>
+    </Switch>
+  );
 }
