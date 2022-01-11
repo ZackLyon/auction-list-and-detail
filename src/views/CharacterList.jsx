@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ListedCharacter from '../components/ListedCharacter.jsx';
 import { useCharacter } from '../context/CharacterContext.jsx';
 import { getCharacters } from '../services/GetCharacters.js';
@@ -18,7 +19,9 @@ export default function CharacterList() {
         <h1>Loading...</h1>
       ) : (
         characters.map((character) => (
-          <ListedCharacter key={character.id} {...{ character }} />
+          <Link to={`/characters/${character.id}`}>
+            <ListedCharacter key={character.id} {...{ character }} />
+          </Link>
         ))
       )}
     </div>

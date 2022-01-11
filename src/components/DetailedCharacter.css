@@ -1,0 +1,43 @@
+.detailedCharacter {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  /* grid-template-rows: 6fr 1fr 1fr 1fr 1fr; */
+  justify-items: center;
+}
+.detailedCharacter > * {
+  margin-bottom: 0.5vh;
+}
+
+.detailedCharacter > img {
+  object-fit: contain;
+  height: 50vh;
+}
+
+.detailedCharacter > h1 {
+  font-size: 5em;
+}
+
+.detailedCharacter > h3 {
+  font-size: 3em;
+}
+.detailedCharacter > h4 {
+  font-size: 2em;
+}
+
+.detailedCharacter > section {
+  font-size: 1.5em;
+  width: 60%;
+  background-color: cadetblue;
+  padding: 0.5vh;
+}
+
+.detailedCharacter > section > * {
+  padding: 0.5vh;
+}
+
+.detailedCharacter > hr {
+  height: 3px;
+  width: 90%;
+  color: black;
+}
