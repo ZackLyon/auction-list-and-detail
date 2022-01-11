@@ -1,6 +1,6 @@
 .characterContainer {
   display: grid;
   grid-template: 1fr / 1fr 1fr 1fr;
-  gap: 1vw;
+  gap: 2vw;
   background-color: black;
 }

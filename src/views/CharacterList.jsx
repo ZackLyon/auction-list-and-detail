@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import ListedCharacter from '../components/ListedCharacter.jsx';
+import { useCharacter } from '../context/CharacterContext.jsx';
 import { getCharacters } from '../services/GetCharacters.js';
 import styles from './CharacterList.css';
 
 export default function CharacterList() {
-  const [characters, setCharacters] = useState([]);
+  const { characters, setCharacters } = useCharacter();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,8 +17,8 @@ export default function CharacterList() {
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        characters.map((character, i) => (
-          <ListedCharacter key={i} {...{ character }} />
+        characters.map((character) => (
+          <ListedCharacter key={character.id} {...{ character }} />
         ))
       )}
     </div>
