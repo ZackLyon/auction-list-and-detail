@@ -10,7 +10,9 @@ export default function CharacterList() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getCharacters().then(setCharacters).finally(setLoading(false));
+    getCharacters()
+      .then(setCharacters)
+      .finally(() => setLoading(false));
   }, []);
 
   return (
@@ -19,7 +21,7 @@ export default function CharacterList() {
         <h1>Loading...</h1>
       ) : (
         characters.map((character) => (
-          <Link to={`/characters/${character.id}`}>
+          <Link key={character.id} to={`/characters/${character.id}`}>
             <ListedCharacter key={character.id} {...{ character }} />
           </Link>
         ))

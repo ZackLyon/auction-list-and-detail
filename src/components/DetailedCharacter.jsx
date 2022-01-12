@@ -1,9 +1,7 @@
 import styles from './DetailedCharacter.css';
-import professionMunger from '../utils/professionMunger.js';
 
-export default function DetailedCharacter({ character }) {
-  const profession = professionMunger(character.Profession);
-
+export default function DetailedCharacter({ characters, id }) {
+  const character = characters[id];
   return (
     <div>
       <div className={styles.detailedCharacter}>
@@ -15,8 +13,8 @@ export default function DetailedCharacter({ character }) {
         </h3>
         <h4>Age: {character.Age}</h4>
         <section>
-          {profession.split('\n').map((fragment) => (
-            <div>{fragment}</div>
+          {character.Profession.split('\n').map((fragment, i) => (
+            <div key={i}>{fragment}</div>
           ))}
         </section>
       </div>

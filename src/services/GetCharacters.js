@@ -1,3 +1,5 @@
+import professionMunger from '../utils/professionMunger.js';
+
 export const getCharacters = async () => {
   try {
     const res = await fetch(
@@ -12,6 +14,12 @@ export const getCharacters = async () => {
           character.Name !== 'Mrs. Astor'
       )
       .map((character, i) => ({ ...character, id: i }));
+
+    characters.forEach((character) => {
+      let profession = professionMunger(character.Profession);
+      character.Profession = profession;
+    });
+
     return characters;
   } catch (error) {
     console.log(error);
